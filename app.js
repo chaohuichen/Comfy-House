@@ -1,5 +1,11 @@
-//variables
+const client = contentful.createClient({
+  // This is the space ID. A space is like a project folder in Contentful terms
+  space: 'space id',
+  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+  accessToken: 'api keys',
+});
 
+//variables
 const cartBtn = document.querySelector('.cart-btn');
 const closeCartBtn = document.querySelector('.close-cart');
 const clearCartBtn = document.querySelector('.clear-cart');
@@ -12,6 +18,7 @@ const productsDOM = document.querySelector('.products-center');
 
 // cart items
 let cart = [];
+
 //buttons
 let buttonDOM = [];
 
@@ -19,10 +26,17 @@ let buttonDOM = [];
 class Products {
   async getProducts() {
     try {
+      //fetch data from contenful
+      // let contentful = await client.getEntries({
+      //   content_type: 'products',
+      // });
+      // let products = contentful.items;
+
+      // fetch fron local data
       const result = await fetch('products.json');
       let data = await result.json();
-
       let products = data.items;
+
       products = products.map((product) => {
         const { title, price } = product.fields;
         const { id } = product.sys;
@@ -46,7 +60,7 @@ class Products {
 class UI {
   displayProducts(products) {
     let result = '';
-    console.log(products);
+
     products.forEach((product) => {
       result += ` <!--single product-->
       <article class="product">
@@ -84,7 +98,7 @@ class UI {
       btn.addEventListener('click', (evt) => {
         evt.target.innerText = 'In Cart';
         btn.disabled = true;
-        console.log(btns);
+
         //get product from products basic on the id
         let cartItem = { ...Storage.getProduct(id), amount: 1 };
 
@@ -214,7 +228,6 @@ class UI {
   }
 
   getSingleBtn(id) {
-    console.log(buttonDOM.find((button) => button.dataset.id === id));
     return buttonDOM.find((button) => button.dataset.id === id);
   }
 }
