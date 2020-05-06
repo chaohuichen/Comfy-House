@@ -5,10 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Comfy House</title>
     <!-- font awsome-->
-
+    <script
+      src="https://kit.fontawesome.com/3b9689facf.js"
+      crossorigin="anonymous"
+    ></script>
     <!--custom css-->
-    <link rel="stylesheet" herf="styles.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
-  <body></body>
+  <body>
+    <!--navbar-->
+    <nav class="navbar">
+      <div class="navbar-center">
+        <span class="nav-icon">
+          <i class="fas fa-bars"></i>
+        </span>
+        <img src="./images/logo.svg" alt="store logo" />
+        <div class="cart-btn">
+          <span class="nav-icon">
+            <i class="fas fa-cart-plus"> </i>
+          </span>
+          <div class="cart-items">0</div>
+        </div>
+      </div>
+    </nav>
+    <!-- end of Navbar-->
+    <!--hero-->
+    <header class="hero">
+      <div class="banner">
+        <h1 class="banner-title">funiture collection</h1>
+        <button class="banner-btn">shop now</button>
+      </div>
+    </header>
+    <!--end of hero-->
+    <!--products-->
+    <section class="products">
+      <div class="section-title">
+        <h2>our products</h2>
+      </div>
+      <div class="products-center">
+        <!--single product-->
+        <article class="product">
+          <div class="img-container">
+            <img
+              src="./images/product-1.jpeg"
+              alt="product"
+              class="product-img"
+            />
+            <button class="bag-btn" data-id="1">
+              <i class="fas shipping cart">add to bag</i>
+            </button>
+          </div>
+          <h3>queen bed</h3>
+          <h4>$16.99</h4>
+        </article>
+        <!-- end of single product-->
+      </div>
+    </section>
+    <!--end of products-->
+    <div class="cart-overlay">
+      <div class="cart">
+        <span class="close-cart">
+          <i class="fas fa-window-close"></i>
+        </span>
+        <h2>your cart</h2>
+        <div class="cart-content">
+          <!--cart item-->
+          <div class="cart-item">
+            <img src="./images/product-1.jpeg" alt="product" />
+          </div>
+          <!--end of cart item-->
+        </div>
+      </div>
+    </div>
+    <!--cart-->
+
+    <!--end of cart-->
+    <script src="app.js"></script>
+  </body>
 </html>
